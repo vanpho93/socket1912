@@ -9,7 +9,9 @@
       $(document).ready(() => {
         let socket = io.connect();
 
-        socket.on('SERVER_REPLY', num => console.log(num));
+        socket.on('SERVER_REPLY', msg => {
+          $('#ul-list').append(`<li>${msg}</li>`)
+        });
 
         $('#send').click(() => {
           let msg = $('#txt-msg').val();
@@ -22,7 +24,12 @@
   </head>
   <body>
     <h1>KhoaPham Training</h1>
+    <input type="text" placeholder="Enter your username" id="txt-username">
+    <button id="signup">Sign up</button>
+    <br><br><br>
     <input type="text" placeholder="Enter your message" id="txt-msg">
     <button id="send">Send a message</button>
+    <ul id="ul-list">
+    </ul>
   </body>
 </html>

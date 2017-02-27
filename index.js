@@ -16,6 +16,10 @@ app.get('/', (req, res) => res.render('home'));
 io.on('connection', socket => {
   console.log('Co nguoi ket noi');
   socket.on('CLIENT_SEND_MESSAGE', msg => {
-    io.emit('SERVER_REPLY', msg);
+    io.emit('SERVER_REPLY', socket.user + ':' + msg);
   });
+
+  socket.on('NEW_USERNAME', username => {
+    socket.user = username
+  })
 });
