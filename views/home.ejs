@@ -9,6 +9,8 @@
       $(document).ready(() => {
         let socket = io.connect();
 
+        socket.on('SERVER_REPLY', num => console.log(num));
+
         $('#send').click(() => {
           socket.emit('CLIENT_SEND_MESSAGE', 'Xin chao server');
         });

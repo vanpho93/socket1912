@@ -12,5 +12,7 @@ app.get('/', (req, res) => res.render('home'));
 
 io.on('connection', socket => {
   console.log('Co nguoi ket noi');
-  socket.on('CLIENT_SEND_MESSAGE', msg => console.log(msg))
+  socket.on('CLIENT_SEND_MESSAGE', msg => {
+    socket.emit('SERVER_REPLY', 123);
+  });
 });
