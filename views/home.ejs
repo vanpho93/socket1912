@@ -12,7 +12,9 @@
         socket.on('SERVER_REPLY', num => console.log(num));
 
         $('#send').click(() => {
-          socket.emit('CLIENT_SEND_MESSAGE', 'Xin chao server');
+          let msg = $('#txt-msg').val();
+          $('#txt-msg').val('');
+          socket.emit('CLIENT_SEND_MESSAGE', msg);
         });
 
       });
@@ -20,6 +22,7 @@
   </head>
   <body>
     <h1>KhoaPham Training</h1>
+    <input type="text" placeholder="Enter your message" id="txt-msg">
     <button id="send">Send a message</button>
   </body>
 </html>
