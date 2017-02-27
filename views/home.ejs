@@ -19,6 +19,12 @@
           socket.emit('CLIENT_SEND_MESSAGE', msg);
         });
 
+        $('#signup').click(() => {
+          let username = $('#txt-username').val();
+          $('#txt-msg').val('');
+          socket.emit('NEW_USERNAME', username);
+        });
+
       });
     </script>
   </head>
