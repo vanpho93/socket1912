@@ -8,10 +8,16 @@
     <script type="text/javascript">
       $(document).ready(() => {
         let socket = io.connect();
+
+        $('#send').click(() => {
+          socket.emit('CLIENT_SEND_MESSAGE', 'Xin chao server');
+        });
+
       });
     </script>
   </head>
   <body>
     <h1>KhoaPham Training</h1>
+    <button id="send">Send a message</button>
   </body>
 </html>
